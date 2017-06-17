@@ -8,12 +8,8 @@
     <h1>欢迎光临我的博客</h1>
     <hr>
         {% for post in posts %}
-            <p style="font-family: 微软雅黑; font-size: 16pt; font-weight: bold;">
-                {{ post.title }}
-            </p>
-            <p style="font-family: 微软雅黑; font-size: 10pt; letter-spacing: 1pt;">
-                {{ post.body }}
-            </p>
+            <p style="font-family: 微软雅黑; font-size: 16pt; font-weight: bold;"></p>
+            <a href="/post/{{ post.slug }}"> {{ post.title }}</a>
         {% endfor %}
         
     </hr>
