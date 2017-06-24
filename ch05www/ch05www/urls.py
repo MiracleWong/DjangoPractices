@@ -19,5 +19,8 @@ from mysite import views
 
 urlpatterns = [
     url(r'^$', views.homepage),
+    url(r'^about/([0|1|2|3])/$', views.about),
+    url(r'^list/(?P<list_date>\d{4}/\d{1,2}/\d{1,2})$', views.listing),
+    url(r'^post/(\d{4})/(\d{1,2})/(\d{1,2})/(\d{1,3})$', views.post),
     url(r'^admin/', admin.site.urls),
 ]
