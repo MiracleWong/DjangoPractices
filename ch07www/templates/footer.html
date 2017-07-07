@@ -1,8 +1,8 @@
 <!-- footer.html -->
-{% block footer %}
-    {% if now %}
-        <p style="font-family: 微软雅黑;">现在时刻：{{ now }}</p>
-    {% else %}
-        <p style="font-family: 微软雅黑;">本文内容取自网络，如有侵权请来信下架</p>
-    {% endif %}
-{% endblock %}
+{% load staticfiles %}
+<img src="{% static "images/logo.png" %}" width=100>
+
+<em>
+    Copyright 2016 <a href="http://hophd.com">http://hophd.com</a>
+    .All rights reserved.
+</em>
