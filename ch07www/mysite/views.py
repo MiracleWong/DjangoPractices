@@ -6,7 +6,8 @@ from mysite import models
 # Create your views here.
 
 def index(request):
-    # products = models.Product.objects.all()
-    # template = get_template('index.html')
-    # html = template.render(locals())
-    return HttpResponse("<h1>Hello World!</h1>")
+    products = models.Product.objects.all()
+    template = get_template('index.html')
+    html = template.render(locals())
+    return HttpResponse(html)
+    # return HttpResponse("<h1>Hello World!</h1>")
