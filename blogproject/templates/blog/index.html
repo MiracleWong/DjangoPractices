@@ -70,6 +70,9 @@
                 <main class="col-md-8">
                     {% for post in post_list %}
                         <article class="post post-{{ post.pk }}">
+                            <h1 class="entry-title">
+                                <a href="single.html"> {{ post.title }}</a>
+                            </h1>
                             <div class="entry-meta">
                                 <span class="post-category"><a href="#">{{ post.category.name }}</a></span>
                                 <span class="post-date"><a href="#"><time class="entry-date"
