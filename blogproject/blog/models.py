@@ -9,11 +9,14 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 class Tag(models.Model):
     name = models.CharField(max_length = 100)
 
     def __str__(self):
         return self.name
+
+
 class Post(models.Model):
     title = models.CharField(max_length=70)
     body = models.TextField()
@@ -30,4 +33,4 @@ class Post(models.Model):
     # 自定义的 get_absolute_url 方法
     # 记得从django.urls 中导入reverse函数
     def get_absolute_url(self):
-        return reverse('blog:detail', kwargs={'pk', self.pk})
+        return reverse('blog:detail', kwargs={'pk': self.pk})
