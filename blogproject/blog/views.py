@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Category
+from .models import Post, Category, Tag
 from comments.forms import CommentForm
 import markdown
 from django.views.generic import ListView, DetailView
@@ -162,7 +162,11 @@ def archives(request, year, month):
     return render(request, 'blog/index.html', context={'post_list': post_list})
 
 
-class ArchivesView(IndexView):
+class ArchivesView(ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'post_list'
+
     def get_queryset(self):
         year = self.kwargs.get('year')
         month = self.kwargs.get('month')
@@ -175,7 +179,21 @@ class ArchivesView(IndexView):
 #     return render(request, 'blog/index.html', context={'post_list': post_list})
 
 
-class CategoryView(IndexView):
+class CategoryView(ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'post_list'
+
     def get_queryset(self):
         cate = get_object_or_404(Category, pk=self.kwargs.get('pk'))
         return super(CategoryView, self).get_queryset().filter(category=cate)
+
+
+class TagView(ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'post_list'
+
+    def get_queryset(self):
+        tag = get_object_or_404(Tag, pk=self.kwargs.get('pk'))
+        return super(TagView, self).get_queryset().filter(tags=tag)
